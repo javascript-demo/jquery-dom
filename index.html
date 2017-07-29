@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击删除</title>
+    <script src="./jquery-3.1.1.min.js"></script>
+    <style>
+        .buttonStyle{
+            background-color: cadetblue;
+            font-size: large;
+        }
+    </style>
+    <script>
+        $(function(){
+            const $list1 = $('#list');
+            $list1.on('click','li',
+                    function () {
+                        $(this).remove();
+                    })
+        });
+    </script>
+</head>
+<body>
+   <ul  id="list">
+       <li>
+           这是第一个li元素
+           <button type="button" class="buttonStyle">删除第一个li元素</button>
+       </li>
+       <li>
+           这是第二个li元素
+           <button type="button" class="buttonStyle">删除第二个li元素</button>
+       </li>
+       <li>
+           这是第三个li元素
+           <button type="button" class="buttonStyle">删除第三个li元素</button>
+       </li>
+       <li>
+           这是第四个li元素
+           <button type="button" class="buttonStyle">删除第四个li元素</button>
+       </li>
+   </ul>
+</body>
+
+</html>
