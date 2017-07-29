@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项</title>
+    <script src="./jquery-3.1.1.min.js"></script>
+    <style>
+        ul li{
+            list-style: none;
+            line-height: 30px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $('#all').click(function () {
+                if(this.checked){
+                    $("#list :checkbox").attr("checked",true);
+                }
+                else{
+                    $("#list :checkbox").attr("checked",false);
+                }
+            });
+            $('#selectAll').click(function () {
+                $("#list :checkbox,#all").attr("checked",true);
+            });
+            $('#unSelect').click(function () {
+                $("#list :checkbox,#all").attr("checked",false);
+            });
+            $('#reverse').click(function () {
+                $("#list :checkbox,#all").each(function () {
+                    $(this).attr("checked",!$(this).attr("checked"));
+                })
+            });
+            $('#getValue').click(function () {
+                const valueArr = [];
+                $("#list :checkbox:checked").each(function () {
+                    valueArr.push($(this).val())
+                })
+                const value = valueArr.join(' ');
+                alert(value);
+            });
+        })
+    </script>
+</head>
+<body>
+<h1>checkbox selectAll</h1>
+<ul id="list">
+    <li><lable><input type="checkbox" value="1">Jquery</lable></li>
+    <li><lable><input type="checkbox" value="2">React</lable></li>
+    <li><lable><input type="checkbox" value="3">Redux</lable></li>
+    <li><lable><input type="checkbox" value="4">Nodejs</lable></li>
+    <li><lable><input type="checkbox" value="5">Express</lable></li>
+    <li><lable><input type="checkbox" value="6">Mongodb</lable></li>
+</ul>
+<input type="checkbox" id="all">
+<input type="button" value="全选" class="btn" id="selectAll">
+<input type="button" value="全不选" class="btn" id="unSelect">
+<input type="button" value="反选" class="btn" id="reverse">
+<input type="button" value="获得所选的信息" class="btn" id="getValue">
+
+</body>
+</html>
